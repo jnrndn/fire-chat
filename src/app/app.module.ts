@@ -7,10 +7,12 @@ import { AngularFirestoreModule } from 'angularfire2/firestore';
 import { firebaseConfig } from '../environments/firebase.config';
 import { AppComponent } from './app.component';
 import { MatButtonModule, MatIconModule } from '@angular/material';
+import { ChatComponent } from './chat/chat.component';
 
 @NgModule({
   declarations: [
     AppComponent,
+    ChatComponent,
   ],
   imports: [
     BrowserModule,

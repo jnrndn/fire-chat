@@ -1,6 +1,7 @@
 <h1>Ng Colombia Chat</h1>
 <ng-container *ngIf="afAuth.user | async as user; else showLogin">
   <h2>{{ user.displayName }}</h2>
+  <app-chat [user]="user.displayName"></app-chat>
   <button
     mat-raised-button
     (click)="logout()"
