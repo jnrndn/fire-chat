@@ -1,0 +1,30 @@
+language: node_js
+node_js:
+  - "9"
+dist: trusty
+sudo: false
+
+# safelist
+branches:
+  only:
+  - master
+  - develop
+
+cache:
+  directories:
+    - node_modules
+
+install:
+  - npm install -g yarn
+
+script:
+  - yarn --no-progress
+  - yarn lint
+  - yarn build --no-progress
+deploy:
+  provider: pages
+  skip_cleanup: true
+  github_token: $GITHUB_TOKEN
+  local_dir: dist/fire-chat
+  on:
+    branch: master
