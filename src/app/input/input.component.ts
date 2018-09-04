@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { firestore } from 'firebase/app';
-import { DataService } from '../data.service';
-import { Message } from '../message.interface';
+import { DataService } from './../data.service';
+import { Message } from './../message.interface';
 
 @Component({
   selector: 'app-input',
