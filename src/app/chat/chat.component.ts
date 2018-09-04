@@ -15,7 +15,7 @@ export class ChatComponent implements OnInit {
   messageRef: AngularFirestoreCollection<Message>;
 
   constructor(private afs: AngularFirestore) {
-    this.messageRef = afs.collection<Message>('/messages', ref => ref.orderBy('timestamp'));
+    this.messageRef = this.afs.collection<Message>('/messages', ref => ref.orderBy('timestamp'));
   }
 
   ngOnInit() {
