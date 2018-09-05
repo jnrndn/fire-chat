@@ -1,10 +1,16 @@
-<div>
-  <app-input [user]=user></app-input>
-  <div>
+<div class="chat">
+  <div
+    class="message-box"
+    #messagesBox
+  >
     <app-messages
       *ngFor="let message of messages | async;"
       [message]="message"
       [user]="user"
     ></app-messages>
   </div>
+  <app-input
+    class="text-box"
+    [user]=user
+  ></app-input>
 </div>
