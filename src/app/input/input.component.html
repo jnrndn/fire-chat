@@ -1,11 +1,13 @@
 <mat-form-field>
-  <textarea
+  <input
     #chatMessage
     matInput
     placeholder="Type your message"
-  ></textarea>
+  >
 </mat-form-field>
 <button
-  mat-button
+  id="btn"
+  mat-raised-button
+  color="primary"
   (click)="sendMessage(chatMessage.value)"
 >Send</button>

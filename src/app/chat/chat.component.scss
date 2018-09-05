@@ -1,0 +1,10 @@
+.chat {
+  flex: 1;
+  background-color:#f0ffff;
+  padding: 10px 10px 0 10px;
+  border-radius: 2%;
+
+  .message-box {
+    height: 300px;
+  }
+}

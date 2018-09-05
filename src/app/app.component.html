@@ -1,22 +1,27 @@
-<h1>Ng Colombia Chat</h1>
-<ng-container *ngIf="afAuth.user | async as user; else showLogin">
-  <h2>{{ user.displayName }}</h2>
-  <app-chat [user]="user.displayName"></app-chat>
-  <button
-    mat-raised-button
-    (click)="logout()"
-  >Logout</button>
-</ng-container>
-<ng-template #showLogin>
-  <span>Please Login</span>
-  <div class="login">
+<div class="container">
+  <h1>Ng Colombia Chat</h1>
+  <ng-container *ngIf="afAuth.user | async as user; else showLogin">
+    <h2>{{ user.displayName }}</h2>
+    <app-chat [user]="user.displayName"></app-chat>
     <button
+      id="btn"
       mat-raised-button
-      (click)="googleLogin()"
-    >Login with google</button>
-    <button
-      mat-raised-button
-      (click)="githubLogin()"
-    >Login with github</button>
-  </div>
-</ng-template>
+      (click)="logout()"
+    >Logout</button>
+  </ng-container>
+  <ng-template #showLogin>
+    <span>Please Login</span>
+    <div class="login">
+      <button
+        id="btn"
+        mat-raised-button
+        (click)="googleLogin()"
+      >Login with google</button>
+      <button
+        id="btn"
+        mat-raised-button
+        (click)="githubLogin()"
+      >Login with github</button>
+    </div>
+  </ng-template>
+</div>
