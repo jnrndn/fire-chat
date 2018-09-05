@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, ViewChild, ElementRef, AfterViewChecked } from '@angular/core';
 import { AngularFirestore, AngularFirestoreCollection } from 'angularfire2/firestore';
 import { Observable } from 'rxjs';
 import { Message } from './../message.interface';
@@ -8,8 +8,10 @@ import { Message } from './../message.interface';
   templateUrl: './chat.component.html',
   styleUrls: [ './chat.component.scss' ],
 })
-export class ChatComponent implements OnInit {
+export class ChatComponent implements OnInit, AfterViewChecked {
   @Input() user: string;
+
+  @ViewChild('messagesBox') private messageBox: ElementRef;
 
   messages: Observable<any[]>;
   messageRef: AngularFirestoreCollection<Message>;
@@ -20,6 +22,18 @@ export class ChatComponent implements OnInit {
 
   ngOnInit() {
     this.messages = this.messageRef.valueChanges();
+    this.scrollToBottom();
   }
 
+  ngAfterViewChecked() {
+    this.scrollToBottom();
+  }
+
+  scrollToBottom(): void {
+    try {
+      this.messageBox.nativeElement.scrollTop = this.messageBox.nativeElement.scrollHeight;
+    } catch (err) {
+      console.log('error scrolling message box', err);
+    }
+  }
 }
